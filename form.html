@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form>
+      <label for="frname">First Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br />
+      <label for="ltname">Last Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br />
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input
+        type="tel"
+        placeholder="Enter 10-digit phone number"
+        id="phoneNumber"
+        name="phoneNumber"
+        required
+      />
+      <br />
+      <div class="mb-3">
+        <label for="eircode" class="form-label">Eircode</label>
+        <input
+          type="text"
+          class="form-control"
+          id="eircode"
+          name="eircode"
+          placeholder="Enter 6-character Eircode"
+          required
+        />
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>
