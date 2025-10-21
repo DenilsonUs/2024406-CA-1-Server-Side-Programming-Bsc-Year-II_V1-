@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling - Centers the form*/
+body {
+  font-family: Arial, sans-serif; /* Basic font */
+  background-color: #f0f0f0; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+/* Form Container  */
+form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Simple shadow */
+  width: 100%;
+  max-width: 400px; /* Desktop width limit */
+}
+
+/* Styling for Labels */
+label {
+  display: block; /* Make labels take up the full width */
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
