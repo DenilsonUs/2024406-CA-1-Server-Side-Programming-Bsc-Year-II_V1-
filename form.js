@@ -8,7 +8,7 @@ const nameRegEx = /^[a-zA-Z0-9]+$/;
 
 function validateNames() {
   const nameRegEx = /^[a-zA-Z0-9]+$/;
-  // Step 3: Variable to track if both names are valid
+  //Variable to track if both names are valid
   let isValid = true;
 
   // FIRST ANS LAST NAME VALIDATION
@@ -51,6 +51,30 @@ function validateNames() {
     document.getElementById("ltnameError").innerText = "";
   }
 
-  // Step 4: Return final validation result
+  // Return final validation result
   return isValid;
+}
+function validateEmail() {
+  const userEmail = email.value.trim();
+  const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  let isValid = true;
+  // Validate the EMAIL format
+  if (!emailRegEx.test(userEmail)) {
+    alert("Please enter a valid email address (e.g., user@example.com)");
+    document.getElementById("emailError").innerText =
+      "Invalid email format. Please check your entry.";
+    isValid = false;
+  } else {
+    // Clear the error if email is valid
+    document.getElementById("emailError").innerText = "";
+  }
+
+  // Return the validation result
+  return isValid;
+}
+
+function validateForm() {
+  const namesAreValid = validateNames();
+  const emailIsValid = validateEmail();
+  return true;
 }
