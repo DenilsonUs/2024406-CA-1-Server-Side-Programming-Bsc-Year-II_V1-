@@ -7,19 +7,29 @@
     <title>Form</title>
   </head>
   <body>
-    <form>
+    <form onsubmit="return validateNames()">
       <label for="frname">First Name:</label>
       <input
         type="text"
-        id="name"
-        name="name"
+        id="frname"
+        name="frname"
         placeholder="Denilson "
         required
       />
+      <span id="frnameError" class="error"></span>
       <br />
+
       <label for="ltname">Last Name:</label>
-      <input type="text" id="name" name="name" placeholder="Lopez" required />
+      <input
+        type="text"
+        id="ltname"
+        name="ltname"
+        placeholder="Lopez"
+        required
+      />
+      <span id="ltnameError" class="error"></span>
       <br />
+
       <label for="email">Email:</label>
       <input
         type="email"
@@ -28,7 +38,9 @@
         placeholder="2024406@cct.ie"
         required
       />
+      <span id="emailError" class="error"></span>
       <br />
+
       <label for="phoneNumber" class="form-label">Phone Number</label>
       <input
         type="tel"
@@ -37,7 +49,9 @@
         name="phoneNumber"
         required
       />
+      <span id="phoneError" class="error"></span>
       <br />
+
       <div class="mb-3">
         <label for="eircode" class="form-label">Eircode</label>
         <input
@@ -48,8 +62,10 @@
           placeholder="Enter 6-character Eircode"
           required
         />
+        <span id="eircodeError" class="error"></span>
       </div>
       <button type="submit" class="btn">Send</button>
     </form>
+    <script src="./form.js"></script>
   </body>
 </html>
