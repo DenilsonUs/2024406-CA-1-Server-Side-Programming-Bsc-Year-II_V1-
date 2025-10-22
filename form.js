@@ -72,9 +72,63 @@ function validateEmail() {
   // Return the validation result
   return isValid;
 }
+function validatePhoneNumber() {
+  const phoneValue = phoneNumber.value.trim();
+  const phoneRegEx = /^[0-9]+$/;
+  let isValid = true;
+
+  // Validate NUMERIC FORMAT
+  if (!phoneRegEx.test(phoneValue)) {
+    alert("Phone Number must contain only numbers (0–9).");
+    document.getElementById("phoneError").innerText =
+      "Please enter digits only (no spaces or symbols).";
+    isValid = false;
+  }
+  // Validate LENGTH (must be exactly 10 digits)
+  else if (phoneValue.length !== 10) {
+    alert("Phone Number must be exactly 10 digits long.");
+    document.getElementById("phoneError").innerText =
+      "Phone Number must contain exactly 10 digits.";
+    isValid = false;
+  } else {
+    // Clear error if input passes all checks
+    document.getElementById("phoneError").innerText = "";
+  }
+
+  // Return the final result
+  return isValid;
+}
+function validateEircode() {
+  const eircodeValue = eircode.value.trim();
+  const eircodeRegEx = /^[0-9][a-zA-Z0-9]{5}$/;
+  let isValid = true;
+
+  if (eircodeValue.length !== 6) {
+    alert(" Eircode must be exactly 6 characters long.");
+    document.getElementById("eircodeError").innerText =
+      "Eircode must be exactly 6 characters (letters and numbers).";
+    isValid = false;
+  }
+  //  Regex Validation (must start with a number + alphanumeric)
+  else if (!eircodeRegEx.test(eircodeValue)) {
+    alert(
+      "Invalid Eircode format. It must start with a number and contain only letters or digits."
+    );
+    document.getElementById("eircodeError").innerText =
+      "Invalid Eircode. Start with a number and use letters/numbers only.";
+    isValid = false;
+  } else {
+    // If both checks pass, clear the error message
+    document.getElementById("eircodeError").innerText = "";
+  }
+  return isValid;
+}
 
 function validateForm() {
   const namesAreValid = validateNames();
   const emailIsValid = validateEmail();
+  const phoneIsValid = validatePhoneNumber();
+  const eircodeIsValid = validateEircode();
+
   return true;
 }
