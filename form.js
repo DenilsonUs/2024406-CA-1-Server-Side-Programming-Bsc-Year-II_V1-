@@ -4,7 +4,6 @@ const lname = document.getElementById("ltname");
 const email = document.getElementById("email");
 const phoneNumber = document.getElementById("phoneNumber");
 const eircode = document.getElementById("eircode");
-const nameRegEx = /^[a-zA-Z0-9]+$/;
 
 function validateNames() {
   const nameRegEx = /^[a-zA-Z0-9]+$/;
@@ -130,5 +129,11 @@ function validateForm() {
   const phoneIsValid = validatePhoneNumber();
   const eircodeIsValid = validateEircode();
 
-  return true;
+  if (!namesAreValid || !emailIsValid || !phoneIsValid || !eircodeIsValid) {
+    console.log(" One or more fields are invalid.");
+    return false; // stop submission
+  }
+
+  console.log("All validations passed successfully!");
+  return true; // allow submission
 }
