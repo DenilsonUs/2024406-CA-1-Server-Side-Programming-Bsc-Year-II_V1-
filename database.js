@@ -1,4 +1,4 @@
-var mysql = require("mysql");
+var mysql = require("mysql2");
 
 // Create the connection to the MySQL database
 var connection = mysql.createConnection({
