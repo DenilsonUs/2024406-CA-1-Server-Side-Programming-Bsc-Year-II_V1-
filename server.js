@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 // Import the database connection
-var connection = require("./database");
+var connection = require("./database.js");
 
 // Middleware to read form data
 app.use(express.urlencoded({ extended: true }));
