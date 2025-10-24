@@ -1,6 +1,6 @@
 // console.log("this is workling");
 
-//get the form elements from the HTML document
+//get the form elements from the Dom
 const fname = document.getElementById("frname");
 const lname = document.getElementById("ltname");
 const email = document.getElementById("email");
@@ -14,8 +14,8 @@ function validateNames() {
   let isValid = true; //Variable to track if both names are valid
 
   // FIRST ANS LAST NAME VALIDATION
-  const firstName = fname.value.trim(); // Remove any spaces 
-  const lastName = lname.value.trim(); // Remove any spaces 
+  const firstName = fname.value.trim(); // Remove any spaces
+  const lastName = lname.value.trim(); // Remove any spaces
 
   // Check if name has only letters
   if (!nameRegEx.test(firstName)) {
@@ -26,9 +26,9 @@ function validateNames() {
   }
   // Check the length condition (must not exceed 20 characters)
   else if (firstName.length > 20) {
-    alert("First Name cannot be longer than 20 characters.");
+    alert("First Name cannot be longer than 20 characters."); // Display an alert error message
     document.getElementById("frnameError").innerText =
-      " First Name must be under 20 characters.";
+      " First Name must be under 20 characters."; // Display an error message on the form
     isValid = false;
   } else {
     // Clear error message if valid
@@ -56,13 +56,15 @@ function validateNames() {
   // Return final validation result
   return isValid;
 }
+//Function to validate email
 function validateEmail() {
   const userEmail = email.value.trim();
-  const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  let isValid = true;
+  const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Variable to track if email is valid
+  let isValid = true; // Variable to track if email is valid
   // Validate the EMAIL format
   if (!emailRegEx.test(userEmail)) {
-    alert("Please enter a valid email address (e.g., user@example.com)");
+    // If email is invalid
+    alert("Please enter a valid email address (e.g., user@example.com)"); // Display an alert
     document.getElementById("emailError").innerText =
       "Invalid email format. Please check your entry.";
     isValid = false;
@@ -74,21 +76,22 @@ function validateEmail() {
   // Return the validation result
   return isValid;
 }
+//Function to validate phone number
 function validatePhoneNumber() {
-  const phoneValue = phoneNumber.value.trim();
-  const phoneRegEx = /^[0-9]+$/;
+  const phoneValue = phoneNumber.value.trim(); // Remove any spaces
+  const phoneRegEx = /^[0-9]+$/; // Variable to track if phone number is valid
   let isValid = true;
 
   // Validate NUMERIC FORMAT
   if (!phoneRegEx.test(phoneValue)) {
-    alert("Phone Number must contain only numbers (0–9).");
+    alert("Phone Number must contain only numbers (0–9)."); // Display an alert
     document.getElementById("phoneError").innerText =
       "Please enter digits only (no spaces or symbols).";
     isValid = false;
   }
   // Validate LENGTH (must be exactly 10 digits)
   else if (phoneValue.length !== 10) {
-    alert("Phone Number must be exactly 10 digits long.");
+    alert("Phone Number must be exactly 10 digits long."); // Display an alert
     document.getElementById("phoneError").innerText =
       "Phone Number must contain exactly 10 digits.";
     isValid = false;
@@ -100,24 +103,25 @@ function validatePhoneNumber() {
   // Return the final result
   return isValid;
 }
+//Function to validate eircode
 function validateEircode() {
-  const eircodeValue = eircode.value.trim();
-  const eircodeRegEx = /^[0-9][a-zA-Z0-9]{5}$/;
+  const eircodeValue = eircode.value.trim(); // Remove any spaces
+  const eircodeRegEx = /^[0-9][a-zA-Z0-9]{5}$/; // Variable to track if eircode is valid
   let isValid = true;
-
+  // Validate LENGTH
   if (eircodeValue.length !== 6) {
-    alert(" Eircode must be exactly 6 characters long.");
+    alert(" Eircode must be exactly 6 characters long."); // Display an alert
     document.getElementById("eircodeError").innerText =
       "Eircode must be exactly 6 characters (letters and numbers).";
     isValid = false;
   }
-  //  Regex Validation (must start with a number + alphanumeric)
+  //  Eircode Validation (must start with a number + alphanumeric)
   else if (!eircodeRegEx.test(eircodeValue)) {
     alert(
       "Invalid Eircode format. It must start with a number and contain only letters or digits."
     );
     document.getElementById("eircodeError").innerText =
-      "Invalid Eircode. Start with a number and use letters/numbers only.";
+      "Invalid Eircode. Start with a number and use letters/numbers only."; // Display an error message on the form
     isValid = false;
   } else {
     // If both checks pass, clear the error message
@@ -125,13 +129,13 @@ function validateEircode() {
   }
   return isValid;
 }
-
+//Function to validate form
 function validateForm() {
   const namesAreValid = validateNames();
   const emailIsValid = validateEmail();
   const phoneIsValid = validatePhoneNumber();
   const eircodeIsValid = validateEircode();
-
+  // Check if all validations are valid
   if (!namesAreValid || !emailIsValid || !phoneIsValid || !eircodeIsValid) {
     console.log(" One or more fields are invalid.");
     return false; // stop submission

@@ -29,9 +29,11 @@ app.post("/submit", function (req, res) {
     return res.status(400).send("Please fill in all fields.");
   }
 
-  // Insert the data into the MySQL table
+  // Insert the form data into the MySQL table
   var sql =
-    "INSERT INTO user_data (first_name, last_name, email, phone_number, eircode) VALUES (?, ?, ?, ?, ?)";
+    "INSERT INTO user_data (first_name, last_name, email, phone_number, eircode) VALUES (?, ?, ?, ?, ?)"; // SQL query in a variable
+
+  // Execute the SQL query
   connection.query(
     sql,
     [firstName, lastName, email, phoneNumber, eircode],
@@ -41,7 +43,7 @@ app.post("/submit", function (req, res) {
         return res.status(500).send("Database error.");
       }
       console.log("Data inserted successfully into MySQL table.");
-      res.send("Your data has been saved successfully!");
+      res.send("Your data has been saved successfully!"); // Send a response after the submit
     }
   );
 });
@@ -54,5 +56,5 @@ app.listen(3000, function () {
     console.log("Connected to MySQL Database!");
   });
 
-  console.log("Server is running on http://localhost:3000");
+  console.log("Server is running on http://localhost:3000"); // Log a message
 });

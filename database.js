@@ -13,7 +13,6 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
   console.log("Database Connected");
-
   // Run a simple SELECT query to get all rows
   connection.query("SELECT * FROM user_data", function (err, results) {
     if (err) throw err;
@@ -22,4 +21,4 @@ connection.connect(function (err) {
     console.table(results); // display rows in a nice table format
   });
 });
-module.exports = connection;
+module.exports = connection; // Export the connection for server.js
