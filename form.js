@@ -1,24 +1,27 @@
 // console.log("this is workling");
+
+//get the form elements from the HTML document
 const fname = document.getElementById("frname");
 const lname = document.getElementById("ltname");
 const email = document.getElementById("email");
 const phoneNumber = document.getElementById("phoneNumber");
 const eircode = document.getElementById("eircode");
 
+//Function to validate names (First Name and Last Name must be alphanumeric and max 20 characters.)
 function validateNames() {
-  const nameRegEx = /^[a-zA-Z0-9]+$/;
-  //Variable to track if both names are valid
-  let isValid = true;
+  const nameRegEx = /^[a-zA-Z0-9]+$/; //Variable to track if both names are valid
+
+  let isValid = true; //Variable to track if both names are valid
 
   // FIRST ANS LAST NAME VALIDATION
-  const firstName = fname.value.trim(); // Remove spaces before checking
-  const lastName = lname.value.trim(); // Remove spaces
+  const firstName = fname.value.trim(); // Remove any spaces 
+  const lastName = lname.value.trim(); // Remove any spaces 
 
   // Check if name has only letters
   if (!nameRegEx.test(firstName)) {
-    alert("First Name must be alphanumeric ");
+    alert("First Name must be alphanumeric "); // Display an alert error message
     document.getElementById("frnameError").innerText =
-      "Please enter a valid First Name (alphanumeric).";
+      "Please enter a valid First Name (alphanumeric)."; // Display an error message on the form
     isValid = false;
   }
   // Check the length condition (must not exceed 20 characters)
